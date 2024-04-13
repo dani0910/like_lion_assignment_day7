@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+<!-- 맨 윗줄에 있어야 에러가 안남 -->
+{% load static %}
+
+{% block title %}
+다은 블로그 detail page
+{% endblock title %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'detail.css' %}">
+{% endblock extrahead %}
+
+{% block content %}
+
+<header>
+  <h1>블로그 상세 페이지</h1>
+  <a href="{% url 'home' %}" class="home">
+    <span class="material-symbols-outlined">home</span>
+    home</a>
+
+</header>
+<main>
+  <section>
+    <div class="blogTitle">
+      <h2>{{blog.title}}</h2>
+      <div>
+        <a href="{% url 'edit' blog.id %}">
+          <span class="material-symbols-outlined">edit_document</span>
+            edit</a>
+        <a href="{% url 'delete' blog.id %}">
+          <span class="material-symbols-outlined">delete</span>
+          delete</a>
+      </div>
+    </div>
+    <div class="blogText">
+      <p>{{blog.content}}</p>
+      <p>{{blog.created_at}}</p>
+      {% if blog.image %}
+      <img src="{{blog.image.url}}" alt="image" width="200">
+      {% endif %}
+    </div>
+  </section>
+</main>
+
+
+{% endblock content %}

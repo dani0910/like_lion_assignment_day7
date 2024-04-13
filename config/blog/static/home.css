@@ -1,0 +1,132 @@
+*{
+  margin: 0;
+  padding: 0;
+ /*  box-sizing: border-box; */
+}
+a{
+  color: #333;
+  text-decoration-line: none;
+}
+
+
+body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fcefd5;
+}
+
+header{
+  width: 100vw;
+  height: 28vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+header > img{
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  border: 2px solid #808080;
+}
+
+h1{
+  width: 100vw;
+  height: 60px;
+  font-size: 36px;
+  text-align: center;
+}
+
+
+main{
+  width: 100vw;
+  height: 72vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 34px;
+}
+
+main > .create{
+  color: #000;
+  font-weight: bold;
+  width: 140px;
+  height: 32px;
+  font-size: 20px;
+  border-bottom: 1px solid #646464;
+}
+
+main > .create:hover{
+  color: #ec9489;
+  border-bottom: 1px solid #f8b4ab;
+}
+
+main > section{
+  width: 750px;
+  height: 500px;
+  /* background: #fff; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+section > .blogContainer{
+  width: 100%;
+  height: 140px;
+  background: #ffffffcc;
+  border-radius: 10px;
+  box-shadow: 5px 7px 15px #00000018;
+}
+section > .blogContainer:hover{
+  background: #ffdcdc;
+}
+
+section > .blogContainer > a{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+.blogTitle{
+  padding-left: 30px;
+}
+.blogContent{
+  padding-left: 30px;
+}
+.blogCreatedAt{
+  position: absolute;
+  color: #b8b8b8;
+  padding-left: 540px;
+  top: 105px;
+  font-size: 15px;
+}
+
+
+main > div{
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  text-align: center;
+}
+
+main > div > span{
+  display: flex;
+  gap: 5px;
+  padding: 0 5px;
+}
+
+main > div > a > span:hover{
+  color: #d33d6f;
+}

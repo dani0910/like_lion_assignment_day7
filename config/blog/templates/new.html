@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+<!-- 맨 윗줄에 있어야 에러가 안남 -->
+{% load static %}
+
+{% block title %}
+새 글 작성하기
+{% endblock title %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'new.css' %}">
+{% endblock extrahead %}
+
+{% block content %}
+<h1>새 글 작성하기</h1>
+<main>
+    <form action="{%url 'create'%}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Title</legend>
+            제목 : <input type="text" name="title" /> 
+        </fieldset>
+        <fieldset>
+            <legend>Content</legend>
+            본문 : <textarea name="content" id="" cols="30" rows="10"></textarea>
+            사진 : <input type="file" name="image" /> 
+        </fieldset>
+        <input type="submit" value="작성하기" />
+    </form>
+</main>
+{% endblock content %}

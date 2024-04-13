@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+<!-- 맨 윗줄에 있어야 에러가 안남 -->
+{% load static %}
+
+{% block title %}
+다은 블로그 home
+{% endblock title %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock extrahead %}
+
+{% block content %}
+
+<header>
+    <img src="{% static 'maru.jpg' %}" alt="" width="100" height="100" class="logo">
+    <h1>LIKELION 12 Blog Project</h1>
+</header>
+<main>
+    <a class="create" href="{%url 'new'%}">새 글 작성하기</a>
+    <section>
+        {% for blog in page_obj %}
+        <div class="blogContainer">
+            <a href="{%url 'detail' blog.id%}">
+                <h2 class="blogTitle">{{blog.title}}</h2>
+                <p class="blogContent">{{blog.content}}</p>
+                <p class="blogCreatedAt">{{blog.created_at}}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </section>
+    <div>
+        {% if page_obj.has_previous %}
+        <a href="?page=1"><span class="material-symbols-outlined">keyboard_double_arrow_left</span></a>
+        <a href="?page={{ page_obj.previous_page_number }}"><span class="material-symbols-outlined">navigate_before</span></a>
+        {% endif %}
+
+        <span>
+            <p>{{page_obj.number}}</p>
+            <p>/</p>
+            <p>{{ page_obj.paginator.num_pages }}</p>   
+        </span>
+        
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }} "><span class="material-symbols-outlined">navigate_next</span></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}"><span class="material-symbols-outlined">keyboard_double_arrow_right</span></a>
+        {% endif %}
+    </div>
+</main>
+
+
+{% endblock content %}
